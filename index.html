@@ -1,0 +1,236 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="description" content="ReconVLA is an uncertainty-guided and failure-aware vision-language-action framework for robotic control."/>
+  <meta name="keywords" content="vision-language-action, robotics, uncertainty, conformal prediction, failure detection"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>
+    ReconVLA: An Uncertainty-Guided and Failure-Aware Vision-Language-Action Framework for Robotic Control
+  </title>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-EWMT3WYG6C"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+
+    gtag("config", "G-EWMT3WYG6C");
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet"/>
+  <link rel="stylesheet" href="./static/css/bulma.min.css"/>
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css"/>
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css"/>
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css"/>
+  <link rel="stylesheet" href="./static/css/index.css"/>
+  <link rel="icon" href="./static/images/favicon.ico"/>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">
+            ReconVLA: An Uncertainty-Guided and Failure-Aware Vision-Language-Action Framework for Robotic Control
+          </h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              Lingling Chen*, Zongyao Lyu*, and <a href="https://ranger.uta.edu/~wjbeksi">William J. Beksi</a></span>
+            </div>
+          <div class="is-size-5 publication-university">
+            <span class="author-block">The University of Texas at Arlington</span>
+          </div>
+          <div class="is-size-5 publication-lab">
+            <span class="author-block">
+              <a href="https://rvl.uta.edu">Robotic Vision Laboratory</a></span>
+          </div>
+          <div class="column is-centered">
+            <div class="publication-links">
+              <!-- Paper link -->
+              <span class="link-block">
+                <a href="https://<to be updated>" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <!-- Preprint link -->
+              <span class="link-block">
+                <a href="https://arxiv.org/pdf/2604.16677" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>Preprint</span>
+                </a>
+              </span>
+              <!-- Source code link -->
+              <span class="link-block">
+                <a href="https://github.com/robotic-vision-lab/cqr-vla-uncertainty" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fab fa-github"></i>
+                  </span>
+                  <span>Source Code</span>
+                </a>
+              </span>
+<!--              &lt;!&ndash; Dataset link &ndash;&gt;-->
+<!--              <span class="link-block">-->
+<!--                <a href="https://mavmatrix.uta.edu/rvl_ebv_datasets/1" class="external-link button is-normal is-rounded is-dark">-->
+<!--                  <span class="icon">-->
+<!--                    <i class="fas fa-database"></i>-->
+<!--                  </span>-->
+<!--                  <span>Dataset</span>-->
+<!--                </a>-->
+<!--              </span>-->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--<section class="hero is-light is-small">-->
+<!--  <div class="hero-body">-->
+<!--    <div class="container is-max-desktop" id="Demonstration">-->
+<!--      <div class="item video_1">-->
+<!--        <video id="raw" autoplay controls muted loop playsinline preload="auto" width="960" height="540">-->
+<!--          <source src="./static/videos/ueof_teaser_small.mp4" type="video/mp4"/>-->
+<!--        </video>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</section>-->
+
+<section class="hero is-light is-small">
+  <div class="hero-body">
+<!--    <div class="container is-max-desktop" id="Demonstration">-->
+<!--      <div class="item video_1">-->
+<!--        <video id="raw" autoplay controls muted loop playsinline preload="auto" width="960" height="540">-->
+<!--          <source src="./static/videos/ueof_teaser_small.mp4" type="video/mp4"/>-->
+<!--        </video>-->
+<!--      </div>-->
+<!--    </div>-->
+    <div class="container is-max-desktop" id="Demonstration">
+      <figure style="text-align: center;">
+        <img src="./static/images/architecture.png"
+             alt="ReconVLA Architecture"
+             style="width: 100%; height: auto; border-radius: 8px;">
+        <figcaption style="margin-top: 10px; font-size: 0.95rem; color: #aaa; line-height: 1.5;">
+          <strong>Architecture.</strong> The ReconVLA framework consists of two
+          main components: (i) <em>SMD Failure Detection</em>, which monitors
+          whether the robot's state deviates from the distribution of safe
+          behaviors and detects when the robot is approaching an unsafe or
+          out-of-distribution state; (ii) <em>CQR Action Selection</em>, which
+          evaluates the uncertainty of multiple noise-conditioned action
+          samples and selects the action with the lowest predicted uncertainty
+          for execution. Together, these components enable reliable and
+          uncertainty-aware control for vision-language-action models.
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop" id="Abstract">
+    <div class="columns is-centered">
+      <!-- Abstract -->
+      <div class="column is-full-width">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Vision-language-action (VLA) models have emerged as generalist
+            robotic controllers capable of mapping visual observations and
+            natural language instructions to continuous action sequences.
+            However, VLAs provide no calibrated measure of confidence in their
+            action predictions, thus limiting their reliability in real-world
+            settings where uncertainty and failures must be anticipated. To
+            address this problem we introduce ReconVLA, a reliable conformal
+            model that produces uncertainty-guided and failure-aware control
+            signals.  Concretely, our approach applies conformal prediction
+            directly to the action token outputs of pretrained VLA policies,
+            yielding calibrated uncertainty estimates that correlate with
+            execution quality and task success. Furthermore, we extend
+            conformal prediction to the robot state space to detect outliers or
+            unsafe states before failures occur, providing a simple yet
+            effective failure detection mechanism that complements the
+            action-level uncertainty. We evaluate ReconVLA in both simulation
+            and real robot experiments across diverse manipulation tasks. Our
+            results show that conformalized action predictions consistently
+            improve failure anticipation, reduce catastrophic errors, and
+            provide a calibrated measure of confidence without retraining or
+            modifying the underlying VLA.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br/>
+
+  <div class="container is-max-desktop content" id="Citation">
+    <!-- Citation -->
+    <h2 class="title is-3">Citation</h2>
+    <p>
+      If you find this project useful, then please consider citing our paper.
+    </p>
+    <pre><code>@article{chen2026reconvla,
+  title={ReconVLA: An Uncertainty-Guided and Failure-Aware Vision-Language-Action Framework for Robotic Control},
+  author={Chen, Lingling, Lyu, Zongyao, and Beksi, William J},
+  journal={arXiv preprint arXiv:2604.16677},
+  year={2026},
+}</code></pre>
+  </div>
+  <br/>
+
+  <div class="container is-max-desktop" id="License">
+    <div class="columns is-centered">
+      <!-- License-->
+      <div class="column is-full-width">
+        <h2 class="title is-3">License</h2>
+        <div class="content has-text-justified">
+          <p>
+            The source code associated with this project is licensed under the
+            <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache License, Version 2.0</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a 
+            <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.  
+            This means you are free to borrow the 
+            <a href="https://github.com/robotic-vision-lab/ueof">source code</a>
+            of this website, we just ask that you link back to this page in the
+            footer. Please remember to remove the analytics code included in
+            the header of this website.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+    
+</body>
+</html>
